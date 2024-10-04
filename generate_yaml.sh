@@ -14,7 +14,7 @@ export MIN_INSTANCES=0  # Set to 1 to keep the service always on
 project_id="project-id"
 
 # Replace variables in the template file
-envsubst < deploy-template.yaml > tmp/deploy.yaml
+envsubst < deploy-template.yaml > deploy.yaml
 
 # Now you can use the deploy.yaml file for your deployment
 # Authentication is managed by ChromaDB, so no need to authenticate with gcloud
