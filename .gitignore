@@ -1,2 +1,4 @@
 test_*
 deploy.yaml
+.env
+.venv
