@@ -52,6 +52,7 @@ The script `generate_yaml.sh` is provided to generate a custom version of the Cl
 - `SERVICE_REGION`: name of the region the service will be deployed to (example: europe-west1)
 - `API_TOKEN`: an alphanumeric sequence to be generated as wanted. Make sure to replace the example to avoid unwanted access. The `generate_token.sh` is provided to handily generate API token.
 - `BUCKET_NAME`: name of the bucket created in Step 1
+- `project_id`: your Google Cloud project ID
 
 We advise to copy this script to `test_generate_yaml.sh` instead editing the original script. This way the original file, `generate_yaml.sh`, is not modified.
 
@@ -69,6 +70,32 @@ Run gcloud command to deploy the service:
 gcloud run services replace deploy.yaml --project <YOUR_PROJECT_ID>
 ```
 Note: you can copy paste the second command from the output of the step 2 command.
+
+<details>
+<summary><span style="color: red;">Known Issues</span></summary>
+
+### Service Account Permissions for maxScale Annotation
+
+There's a known issue with the default Compute Engine service account not having sufficient permissions for the `run.googleapis.com/maxScale` annotation. If you encounter the following error:
+
+```
+ERROR: (gcloud.run.services.replace) metadata.annotations: Project is not allowed to use run.googleapis.com/maxScale annotation
+```
+
+You can work around this issue by:
+
+1. Removing the `run.googleapis.com/maxScale` annotation from the `deploy.yaml` file before deployment.
+2. Deploying the service without this annotation.
+3. After successful deployment, manually setting the scaling in the Google Cloud Console:
+   - Navigate to Cloud Run
+   - Select your deployed service
+   - Click on "Edit & Deploy New Revision"
+   - Scroll down in the "Container(s)" section
+   - Find the "Autoscaling" part
+   - Set your desired minimum and maximum instance counts
+   - Click "Deploy" to apply the changes
+
+</details>
 
 
 ## Step 4: Allow unauthenticated traffic on the service
