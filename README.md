@@ -143,3 +143,13 @@ client = chromadb.HttpClient(host="<YOUR_SERVICE_URL>", port=443, ssl=True,
 ```
 
 Now you can use the `client` object to interact with the ChromaDB service, such as creating collections, adding documents, querying documents, etc. Refer to the Chroma documentation for more details on how to use the Python client library.
+
+## Testing performances
+
+A script is available in the `jobs/load-test` folder to test the performance of the ChromaDB deployment.
+
+To use it, copy the `.env.example` to a `.env` file and fill in the variables.
+
+If necessary, create a virtual environment (see [Installation and virtual environments](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)) and install modules as listed in `requirements.txt`.
+
+Then run the script: `python load_test.py`.
