@@ -31,6 +31,8 @@ spec:
           value: chromadb.auth.token_authn.TokenAuthenticationServerProvider
         - name: PERSIST_DIRECTORY
           value: /db_path
+        - name: GCSFUSE_DEBUG_FUSE
+          value: "true"
         resources:
           limits:
             cpu: 1000m
