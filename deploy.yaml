@@ -29,10 +29,12 @@ spec:
           value: oLJcki8YCnfRsqFsNMllbX51HgHX49Bl
         - name: CHROMA_SERVER_AUTHN_PROVIDER
           value: chromadb.auth.token_authn.TokenAuthenticationServerProvider
+        - name: IS_PERSISTENT
+          value: TRUE
         - name: PERSIST_DIRECTORY
           value: /db_path
-        - name: GCSFUSE_DEBUG_FUSE
-          value: "true"
+        - name: ALLOW_RESET
+          value: FALSE
         resources:
           limits:
             cpu: 1000m
@@ -53,6 +55,7 @@ spec:
           readOnly: false
           volumeAttributes:
             bucketName: face-embeddings
+            mountOptions: "implicit-dirs,file-mode=777,dir-mode=777,uid=1000,gid=1000"
   traffic:
   - percent: 100
     latestRevision: true
