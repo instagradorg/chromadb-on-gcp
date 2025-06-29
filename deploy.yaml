@@ -30,11 +30,11 @@ spec:
         - name: CHROMA_SERVER_AUTHN_PROVIDER
           value: chromadb.auth.token_authn.TokenAuthenticationServerProvider
         - name: IS_PERSISTENT
-          value: TRUE
+          value: "TRUE"
         - name: PERSIST_DIRECTORY
           value: /data
         - name: ALLOW_RESET
-          value: FALSE
+          value: "FALSE"
         resources:
           limits:
             cpu: 1000m
