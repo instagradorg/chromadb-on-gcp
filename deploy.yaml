@@ -55,7 +55,7 @@ spec:
           readOnly: false
           volumeAttributes:
             bucketName: face-embeddings
-            mountOptions: "implicit-dirs,file-mode=777,dir-mode=777,uid=1000,gid=1000,debug_gcs,debug_fuse,debug_http"
+            mountOptions: "implicit-dirs,file-mode=777,dir-mode=777,uid=1000,gid=1000,debug_gcs,debug_fuse,debug_fuse_errors"
   traffic:
   - percent: 100
     latestRevision: true
