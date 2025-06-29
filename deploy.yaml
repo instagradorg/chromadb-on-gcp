@@ -32,7 +32,7 @@ spec:
         - name: IS_PERSISTENT
           value: TRUE
         - name: PERSIST_DIRECTORY
-          value: ./chroma
+          value: /data
         - name: ALLOW_RESET
           value: FALSE
         resources:
