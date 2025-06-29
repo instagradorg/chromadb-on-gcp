@@ -32,7 +32,7 @@ spec:
         - name: IS_PERSISTENT
           value: TRUE
         - name: PERSIST_DIRECTORY
-          value: /db_path
+          value: ./chroma
         - name: ALLOW_RESET
           value: FALSE
         resources:
@@ -41,7 +41,7 @@ spec:
             memory: 4Gi
         volumeMounts:
         - name: gcs-1
-          mountPath: /db_path
+          mountPath: /data
         startupProbe:
           timeoutSeconds: 240
           periodSeconds: 240
